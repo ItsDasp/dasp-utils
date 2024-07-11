@@ -11,7 +11,7 @@ Here is the README in English:
 You can install `dasp-utils` using npm:
 
 ```bash
-npm install dasp-utils
+npm install dasp-utils or git clone https://github.com/ItsDasp/dasp-utils
 ```
 
 ## Usage
@@ -112,4 +112,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 ---
 
 I hope this README is useful for your project. If you have any other requests or need more information, feel free to ask.
-# dasp-utils
