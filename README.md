@@ -1,5 +1,3 @@
-Here is the README in English:
-
 ---
 
 # dasp-utils
