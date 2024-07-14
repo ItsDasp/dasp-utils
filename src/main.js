@@ -1,8 +1,15 @@
 const hugGifs = require('./gifs/hugs');
-const kickGifs = require('./gifs/pokes');
 const kissGifs = require('./gifs/kisses');
 const slapGifs = require('./gifs/slaps');
-const pokesGifs = require('./gifs/pokes');
+const pokeGifs = require('./gifs/pokes');
+const patGifs = require('./gifs/pats');
+const cuddleGifs = require('./gifs/cuddles');
+const ticklesGifs = require('./gifs/tickles')
+const smugGifs = require('./gifs/smugs')
+const biteGifs = require('./gifs/bite')
+const feedGifs = require('./gifs/feed')
+const highFiveGifs = require('./gifs/highfive')
+
 
 module.exports = {
     hug: function() {
@@ -10,8 +17,8 @@ module.exports = {
         return hugGifs[randomIndex];
     },
     poke: function() {
-        const randomIndex = Math.floor(Math.random() * pokesGifs.length);
-        return kickGifs[randomIndex];
+        const randomIndex = Math.floor(Math.random() * pokeGifs.length);
+        return pokeGifs[randomIndex];
     },
     kiss: function() {
         const randomIndex = Math.floor(Math.random() * kissGifs.length);
@@ -24,5 +31,59 @@ module.exports = {
     pat: function() {
         const randomIndex = Math.floor(Math.random() * patGifs.length);
         return patGifs[randomIndex];
+    },
+    cuddle: function() {
+        const randomIndex = Math.floor(Math.random() * cuddleGifs.length);
+        return cuddleGifs[randomIndex];
+    },
+    tickle: function() {
+        const randomIndex = Math.floor(Math.random() * ticklesGifs.length);
+        return ticklesGifs[randomIndex];
+    },
+    smug: function() {
+        const randomIndex = Math.floor(Math.random() * smugGifs.length);
+        return ticklesGifs[randomIndex];
+    },
+    bite: function() {
+        const randomIndex = Math.floor(Math.random() * biteGifs.length);
+        return biteGifs[randomIndex];
+    },
+    feed: function() {
+        const randomIndex = Math.floor(Math.random() * feedGifs.length);
+        return feedGifs[randomIndex];
+    },
+    highfive: function() {
+        const randomIndex = Math.floor(Math.random() * highFiveGifs.length);
+        return highFiveGifs[randomIndex];
+    },
+
+    allGifs: function() {
+        const totalHugGifs = hugGifs.length;
+        const totalKissGifs = kissGifs.length;
+        const totalSlapGifs = slapGifs.length;
+        const totalPokeGifs = pokeGifs.length;
+        const totalPatGifs = patGifs.length;
+        const totalCuddleGifs = cuddleGifs.length;
+        const totalTicklesGifs = ticklesGifs.length;
+        const totalSmugsGifs = smugGifs.length;
+        const totalBiteGifs = biteGifs.length;
+        const totalFeedGifs = feedGifs.length;
+        const totalHighFiveGifs = highFiveGifs.length;
+        const totalGifs = totalHugGifs + totalKissGifs + totalSlapGifs + totalPokeGifs + totalPatGifs + totalCuddleGifs + totalTicklesGifs + totalSmugsGifs + totalBiteGifs + totalFeedGifs + totalHighFiveGifs;
+
+        return {
+            totalHugGifs,
+            totalKissGifs,
+            totalSlapGifs,
+            totalPokeGifs,
+            totalPatGifs,
+            totalCuddleGifs,
+            totalTicklesGifs,
+            totalSmugsGifs,
+            totalBiteGifs,
+            totalFeedGifs,
+            totalHighFiveGifs,
+            totalGifs
+        };
     }
 };

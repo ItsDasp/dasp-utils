@@ -17,58 +17,17 @@ npm install dasp-utils or git clone https://github.com/ItsDasp/dasp-utils
 `dasp-utils` can be easily used in Discord bots. Below is an example of how to implement `dasp-utils` in a Discord bot using the `discord.js` library:
 
 ```javascript
-const { Client, GatewayIntentBits } = require("discord.js");
-const daspUtils = require("dasp-utils");
-const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-  ],
-});
+//Command like Nekotina:
 
-client.once("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+const gif = require('dasp-utils');
 
-client.on("messageCreate", (message) => {
-  if (message.content.startsWith("!hug")) {
-    const hugGif = daspUtils.hug();
-    message.channel.send(
-      `Here's a hug for you, ${message.author.username}! \n**Anime**: ${hugGif.anime} \n${hugGif.url}`
-    );
-  }
+const patGif = gif.pat();
 
-  if (message.content.startsWith("!pat")) {
-    const patGif = daspUtils.pat();
-    message.channel.send(
-      `Here's a pat for you, ${message.author.username}! \n**Anime**: ${patGif.anime} \n${patGif.url}`
-    );
-  }
+const embed = new EmbedBuilder();
+.setImage(patGif.url) // Returns the gif URL
+.setFooter(patGif.anime) // Returns the name of the anime of the gif.
 
-  if (message.content.startsWith("!kiss")) {
-    const kissGif = daspUtils.kiss();
-    message.channel.send(
-      `Here's a kiss for you, ${message.author.username}! \n**Anime**: ${kissGif.anime} \n${kissGif.url}`
-    );
-  }
-
-  if (message.content.startsWith("!slap")) {
-    const slapGif = daspUtils.slap();
-    message.channel.send(
-      `Here's a slap for you, ${message.author.username}! \n**Anime**: ${slapGif.anime} \n${slapGif.url}`
-    );
-  }
-
-  if (message.content.startsWith("!poke")) {
-    const pokeGif = daspUtils.poke();
-    message.channel.send(
-      `Here's a poke for you, ${message.author.username}! \n**Anime**: ${pokeGif.anime} \n${pokeGif.url}`
-    );
-  }
-});
-
-client.login("YOUR_DISCORD_BOT_TOKEN");
+await interaction.reply({embeds: [embed]})
 ```
 
 ## Methods
@@ -105,7 +64,7 @@ If you wish to contribute to this project, please follow these steps:
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+Anyone can use this project, but please! give credits, since all the gifs and names we're placed manually. there's actually 231 gifs on total.
 
 ---
 

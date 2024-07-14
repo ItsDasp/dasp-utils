@@ -17,7 +17,7 @@ const hugGifs = [
     {
         name: 'Hug4',
         anime: 'K-On',
-        url: 'https://64.media.tumblr.com/bfb804c488f52d6d8039929b176f8378/6ec47551342acd38-87/s500x750/eba31928dd4d36c9acd5e8cc348f347649a38777.gifv'
+        url: 'https://64.media.tumblr.com/bfb804c488f52d6d8039929b176f8378/6ec47551342acd38-87/s500x750/eba31928dd4d36c9acd5e8cc348f347649a38777.gif'
     },
     {
         name: 'Hug5',
