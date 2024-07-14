@@ -9,7 +9,7 @@
 You can install `dasp-utils` using npm:
 
 ```bash
-npm install dasp-utils or git clone https://github.com/ItsDasp/dasp-utils
+npm install dasp-utils
 ```
 
 ## Usage
