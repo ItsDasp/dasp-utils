@@ -1,20 +1,24 @@
 {
-    "name": "dasp-utils",
-    "version": "0.0.2",
-    "description": "Paquete npm que proporciona URLs de gifs para interacciones como abrazos, patadas, besos y bofetadas.",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-      "npm",
-      "gifs",
-      "interactions"
-    ],
-    "author": "Dasp",
-    "license": "MIT",
-    "dependencies": {
-
-    }
-  }
-  
+  "name": "dasp-utils",
+  "version": "0.0.2",
+  "description": "Paquete npm que proporciona URLs de gifs para interacciones como abrazos, patadas, besos y bofetadas.",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "gifs",
+    "interactions"
+  ],
+  "author": "Dasp",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsDasp/dasp-utils.git#main"
+  },
+  "bugs": {
+    "url": "https://github.com/ItsDasp/dasp-utils/issues"
+  },
+  "homepage": "https://github.com/ItsDasp/dasp-utils/tree/main#readme"
+}
