@@ -1,7 +1,7 @@
 {
   "name": "dasp-utils",
-  "version": "0.0.2",
-  "description": "Paquete npm que proporciona URLs de gifs para interacciones como abrazos, patadas, besos y bofetadas.",
+  "version": "0.0.5",
+  "description": "Simple npm package for gifs and interactions for discord bots.",
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,8 @@
   "keywords": [
     "npm",
     "gifs",
-    "interactions"
+    "interactions",
+    "discord"
   ],
   "author": "Dasp",
   "license": "CC-BY-4.0",

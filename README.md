@@ -1,99 +1,128 @@
+<a href="https://instagram.com/xidasp">
+  <img src="https://i.imgur.com/XWoG0rI.jpeg" alt="Banner" style="width: 200%; max-width: 3048px;">
+</a>
+
 # dasp-utils
 
-`dasp-utils` is an npm package that provides URLs of gifs for various interactions such as hugs, kicks, kisses, slaps, pokes, pats, cuddles, tickles, smugs, bites, feeds, and high-fives. Each gif comes with additional information about its name and the anime it comes from, making it ideal for use in Discord bots.
+<p>
+  <a href="https://www.npmjs.com/package/dasp-utils"><img src="https://img.shields.io/npm/v/dasp-utils.svg" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/dasp-utils"><img src="https://img.shields.io/npm/dw/dasp-utils.svg" alt="npm downloads/week"></a>
+  <a href="https://github.com/ItsDasp/dasp-utils"><img src="https://img.shields.io/github/issues/ItsDasp/dasp-utils.svg" alt="github issues"></a>
+</p>
+
+`dasp-utils` is an npm package that provides URLs of gifs for various interactions. Such as hugs, kicks, kisses and more. Each gif comes with the name of the anime it comes from! making it ideal for Discord Bots.
+
 
 ## Installation
-
-You can install `dasp-utils` using npm:
-
-```bash
-npm install dasp-utils
+You can use dasp-utils in your project using npm:
+```js
+npm install dasp-utils 
 ```
+
+
+## Quick start
+
+- **Install:** run `npm install dasp-utils`
+- **Require:** import the package and call any action to get a random gif object.
 
 ## Usage
 
-`dasp-utils` can be easily used in Discord bots. Below is an example of how to implement `dasp-utils` in a Discord bot using the `discord.js` library:
+CommonJS example:
 
-```javascript
-// Command example using dasp-utils:
+```js
+const dasp = require('dasp-utils');
 
-const gif = require('dasp-utils');
+// each export is a function that returns a random gif object
+const hug = dasp.hug();
+console.log(hug);
+/* It returns -> {
+  name: 'Hug10',
+  anime: 'Love Live!',
+  url: 'https://i.imgur.com/GuADSLm.gif'
+} */
 
-const patGif = gif.pat();
-
-const embed = new EmbedBuilder()
-  .setImage(patGif.url) // Returns the gif URL
-  .setFooter({ text: patGif.anime }) // Returns the name of the anime of the gif
-
-await interaction.reply({ embeds: [embed] });
+// totals about the collection
+console.log(dasp.allGifs());
+/* It returns -> { totalHugGifs: x, totalKissGifs: x, ..., totalGifs: x } */
 ```
 
-## Methods
+If you use ESM or a bundler, import the default `require`-style export similarly.
 
-`dasp-utils` provides the following methods, each of which returns an object with information about the randomly selected gif:
+## API
 
-- `hug()`: Returns an object with a random hug gif.
-- `poke()`: Returns an object with a random poke gif.
-- `kiss()`: Returns an object with a random kiss gif.
-- `slap()`: Returns an object with a random slap gif.
-- `pat()`: Returns an object with a random pat gif.
-- `cuddle()`: Returns an object with a random cuddle gif.
-- `tickle()`: Returns an object with a random tickle gif.
-- `smug()`: Returns an object with a random smug gif.
-- `bite()`: Returns an object with a random bite gif.
-- `feed()`: Returns an object with a random feed gif.
-- `highfive()`: Returns an object with a random high-five gif.
+- `hug()` — returns a random hug gif object.
+- `kiss()` — returns a random kiss gif object.
+- `slap()` — returns a random slap gif object.
+- `poke()` — returns a random poke gif object.
+- `pat()` — returns a random pat gif object.
+- `cuddle()` — returns a random cuddle gif object.
+- `tickle()` — returns a random tickle gif object.
+- `smug()` — returns a random smug gif object.
+- `bite()` — returns a random bite gif object.
+- `feed()` — returns a random feed gif object.
+- `highfive()` — returns a random highfive gif object.
+- `allGifs()` — returns counts per-action and a `totalGifs` value.
 
-### Example of Returned Object
+Returned gif object shape:
 
-Each method returns an object with the following structure:
-
-```json
+```
 {
-  "name": "Hug18",
-  "anime": "Ano Hi Mita Hana no Namae o Bokutachi wa Mada Shiranai",
-  "url": "https://i.imgur.com/iKPs2AJ.gif"
+  name: string,   // a short identifier
+  anime: string,  // source anime (when available)
+  url: string     // direct gif URL
 }
 ```
 
-### Total Gifs Information
+## Example: Discord (discord.js)
 
-To get the total number of gifs in each category and overall, use the `allGifs` method:
+Friendly quick example showing how to use `dasp-utils` in a bot command:
 
-```javascript
-const allGifs = gif.allGifs();
-console.log(allGifs);
+```js
+// discord.js v14 (slash command)
+const { EmbedBuilder } = require('discord.js');
+const dasp = require('dasp-utils');
+
+module.exports = {
+  data: { name: 'hug' }, // replace with SlashCommandBuilder in your bot
+  async execute(interaction) {
+    const gif = dasp.hug();
+    const embed = new EmbedBuilder()
+      .setTitle('A warm hug for you 🤗')
+      .setDescription(`From: ${gif.anime ?? 'unknown'}`) // Unknown just in case lol
+      .setImage(gif.url)
+      .setColor(0xffaaff);
+
+    await interaction.reply({ embeds: [embed] });
+  }
+};
 ```
 
-The `allGifs` method returns an object with the total count of gifs in each category and the overall total:
+### Screenshot & example
+
+Here is an example of my bot using the package and the exact gif object returned for a `pat` action.
+
+![bot example](https://i.imgur.com/E9iU6T6.png)
+
+Example gif object (for `pat`):
 
 ```json
 {
-  "totalHugGifs": 21,
-  "totalKissGifs": 21,
-  "totalSlapGifs": 21,
-  "totalPokeGifs": 21,
-  "totalPatGifs": 21,
-  "totalCuddleGifs": 21,
-  "totalTicklesGifs": 21,
-  "totalSmugsGifs": 21,
-  "totalBiteGifs": 21,
-  "totalFeedGifs": 21,
-  "totalHighFiveGifs": 21,
-  "totalGifs": 230
+    "name": "Pat1",
+    "anime": "Senpai Ga Uzai Kouhai No Haneshi",
+    "url": "https://i.pinimg.com/originals/4c/03/bb/4c03bbe17bc0825e064d049c5f8262f3.gif"
 }
 ```
+
+## Available actions
+
+This package exposes one function per interaction (see API section). Use whichever fits your bot or app.
 
 ## Contributing
 
-If you wish to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/new-feature`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push your branch to the original repository (`git push origin feature/new-feature`).
-5. Create a new Pull Request.
+- Open an issue or submit a PR on GitHub.
+- Add gifs as objects with `{ name, anime, url }` into `src/gifs/` and update exports if needed.
+- Keep sources attributed and respect the original copyright and hosting terms.
 
 ## License
 
-Anyone can use this project, but please give credit, since all the gifs and names were placed manually. There are currently 231 gifs in total.
+This project is licensed under `CC-BY-4.0` — see `package.json` for details.
